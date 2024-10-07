@@ -1,0 +1,15 @@
+<ul class="list-unstyled w-75 mx-auto">
+    {% for title, description, filename, similarity in results %}
+        <li class="mb-3">
+            <div class="card">
+                <div class="card-body hover-shadow">
+                    <h5 class="card-title">
+                        <a href="/dataset/{{ filename | urlencode }}" target="_blank" class="text-dark">{{ title }}</a>
+                    </h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Similarity: {{ similarity | round(8) }}</h6>
+                    <p class="card-text">{{ description }}</p>
+                </div>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
